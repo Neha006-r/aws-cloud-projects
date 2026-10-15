@@ -1,0 +1,12 @@
+[Unit]
+Description=System monitor app
+After=network.target
+
+[Service]
+User=ubuntu
+WorkingDirectory=/home/ubuntu/aws-projects/monitor-app
+ExecStart=/home/ubuntu/aws-projects/venv/bin/gunicorn -b 0.0.0.0:5002 app:app
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,12 @@
+[Unit]
+Description=Flask demo app
+After=network.target
+
+[Service]
+User=ubuntu
+WorkingDirectory=/home/ubuntu/aws-projects/flask-app
+ExecStart=/home/ubuntu/aws-projects/venv/bin/gunicorn -b 0.0.0.0:5000 app:app
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

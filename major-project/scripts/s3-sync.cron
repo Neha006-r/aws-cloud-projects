@@ -1,0 +1,2 @@
+# /etc/cron.d/s3-sync - copy the private S3 bucket to the Nginx web root every minute
+* * * * * root /snap/bin/aws s3 sync s3://neha-secure-website-<ACCOUNT_ID> /var/www/html --delete --region ap-south-1

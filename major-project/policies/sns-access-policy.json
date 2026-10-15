@@ -1,0 +1,16 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AllowS3ToPublish",
+      "Effect": "Allow",
+      "Principal": { "Service": "s3.amazonaws.com" },
+      "Action": "SNS:Publish",
+      "Resource": "arn:aws:sns:ap-south-1:<ACCOUNT_ID>:website-upload-alerts",
+      "Condition": {
+        "ArnLike": { "aws:SourceArn": "arn:aws:s3:::neha-secure-website-<ACCOUNT_ID>" },
+        "StringEquals": { "aws:SourceAccount": "<ACCOUNT_ID>" }
+      }
+    }
+  ]
+}
